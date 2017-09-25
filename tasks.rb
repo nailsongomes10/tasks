@@ -12,11 +12,11 @@ puts 'Bem-vindo ao app lista de tarefas'
 
 def menu()
   puts 'Escolha uma opção'
-  puts "##{INSERIR_TAREFA} - Inserir tarefa"
-  puts "##{VER_TAREFAS} - Ver Tarefas"
-  puts "##{BUSCAR_TAREFAS} - Buscar tarefas"
-  puts "##{MARCAR_COMO_FEITO} - Marcar uma tarefa como feita"
-  puts "##{SAIR} - Sair"
+  puts "#{INSERIR_TAREFA} - Inserir tarefa"
+  puts "#{VER_TAREFAS} - Ver Tarefas"
+  puts "#{BUSCAR_TAREFAS} - Buscar tarefas"
+  puts "#{MARCAR_COMO_FEITO} - Marcar uma tarefa como feita"
+  puts "#{SAIR} - Sair"
   gets().to_i()
 end
 
@@ -72,9 +72,7 @@ while opcao != SAIR do
           puts 'Tarefa pendente'
         end
         
-        tarefas << tarefa
-    
-#tarefas.collect! { |t| (t == "nome_tarefa") ? "tarefa" : t}
+  tarefas << tarefa
     
   end
 
