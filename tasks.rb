@@ -1,4 +1,5 @@
 require_relative 'task'
+require_relative 'emergencial_task'
 
 INSERIR_TAREFA = 1
 VER_TAREFAS = 2
@@ -7,16 +8,16 @@ MARCAR_COMO_FEITO = 4
 SAIR = 5
 OPCAO_INVALIDA = -1
 
-puts 'Bem-vindo a lista de tarefas'
+puts 'Bem-vindo ao app lista de tarefas'
 
-def menu
+def menu()
   puts 'Escolha uma opção'
-  puts "#{INSERIR_TAREFA} - Inserir tarefa"
-  puts "#{VER_TAREFAS} - Ver Tarefas"
-  puts "#{BUSCAR_TAREFAS} - Buscar tarefas"
-  puts "#{MARCAR_COMO_FEITO} - Marcar uma tarefa como feita"
-  puts "#{SAIR} - Sair"
-  gets.to_i
+  puts "##{INSERIR_TAREFA} - Inserir tarefa"
+  puts "##{VER_TAREFAS} - Ver Tarefas"
+  puts "##{BUSCAR_TAREFAS} - Buscar tarefas"
+  puts "##{MARCAR_COMO_FEITO} - Marcar uma tarefa como feita"
+  puts "##{SAIR} - Sair"
+  gets().to_i()
 end
 
 def imprimir_tarefas(tarefas_para_imprimir)
@@ -34,15 +35,6 @@ while opcao != SAIR do
   if opcao == INSERIR_TAREFA
     puts 'Informe o nome da tarefa'
     nome_tarefa = gets.chomp
-
-    puts 'Tarefa já realizada? Sim: 1 -- Não: 2'
-    status_tarefa = gets.to_i
-
-    if status_tarefa == 1
-      tarefa = Task.new(nome_tarefa, true)
-    elsif
-      tarefa = Task.new(nome_tarefa)
-    end
 
     tarefa = Task.new(nome_tarefa)
 
@@ -67,9 +59,26 @@ while opcao != SAIR do
 
     imprimir_tarefas(tarefas_encontradas)
 
+  elsif opcao == MARCAR_COMO_FEITO
+      puts 'Informe o nome da tarefa'
+      nome_tarefa = gets.chomp
+
+      puts 'Tarefa já finalizada? Sim: 1 -- Não: 2'
+      status_tarefa = gets.to_i
+      if status_tarefa == 1
+        tarefa = Task.new(nome_tarefa, true)
+        puts 'Tarefa finalizada'
+        elsif
+          puts 'Tarefa pendente'
+        end
+        
+        tarefas << tarefa
+    
+#tarefas.collect! { |t| (t == "nome_tarefa") ? "tarefa" : t}
+    
   end
 
-opcao = menu
+opcao = menu()
 
 end
 
